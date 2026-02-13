@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dinesh ❤️ Anaswara - Moonlight Proposal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #2b5876, #4e4376);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        #timer {
+            font-size: 18px;
+            color: #ffd369;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 12px 28px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #yesBtn {
+            background: #ff7eb3;
+            color: white;
+        }
+
+        #noBtn {
+            background: #555;
+            color: white;
+            position: absolute;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🌙 Moonlight Proposal 🌙</h1>
+    <h2>Dinesh ❤️ Anaswara</h2>
+
+    <div id="timer">Time left: 45s</div>
+
+    <div id="questionBox">
+        <h2>Will you be my Valentine?</h2>
+        <button id="yesBtn" onclick="yesClicked()">Yes ❤️</button>
+        <button id="noBtn">No 💔</button>
+    </div>
+
+    <div id="result" class="hidden">
+        <h1>💖 She Said YES 💖</h1>
+        <p>Under the moonlight, love wins forever 🌙</p>
+    </div>
+</div>
+
+<script>
+
+let timeLeft = 45;
+let timer = document.getElementById("timer");
+
+setInterval(() => {
+    if(timeLeft > 0){
+        timeLeft--;
+        timer.innerHTML = "Time left: " + timeLeft + "s";
+    }
+}, 1000);
+
+function yesClicked() {
+    document.getElementById("questionBox").classList.add("hidden");
+    document.getElementById("result").classList.remove("hidden");
+}
+
+let noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("touchstart", moveButton);
+
+function moveButton() {
+    let x = Math.random() * (window.innerWidth - 120);
+    let y = Math.random() * (window.innerHeight - 60);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+</script>
+
+</body>
+</html>
